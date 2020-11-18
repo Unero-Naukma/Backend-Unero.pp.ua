@@ -1,11 +1,34 @@
 {
-  "name": "backend-unero.pp.ua",
+  "name": "unero.pp.ua",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/service/service.js",
+  "dependencies": {
+    "chalk": "4.1.0",
+    "cross-env": "7.0.2",
+    "express": "4.17.1",
+    "express-pino-logger": "5.0.0",
+    "pino": "6.7.0"
+  },
+  "devDependencies": {
+    "eslint": "7.12.1",
+    "eslint-config-htmlacademy": "0.6.0",
+    "nodemon": "2.0.6",
+    "pino-pretty": "4.3.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eslint": "eslint --ext .js src/",
+    "start": "cross-env LOG_LEVEL=error nodemon --inspect=9231 ./src/service/service.js --server 3000",
+    "start::debug": "cross-env LOG_LEVEL=debug PRETTY_PRINT=1 nodemon --inspect=9231 ./src/service/service.js --server 3000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nikmas-creator/Unero.pp.ua.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nikmas-creator/Unero.pp.ua/issues"
+  },
+  "homepage": "https://github.com/Nikmas-creator/Unero.pp.ua#readme"
 }
