@@ -1,7 +1,13 @@
 'use strict';
 
-const OfferService = require(`./offer`);
+const ProductService = require(`./product`);
+const CollectionService = require(`./collection`);
+const CategoryService = require(`./category`);
+const SearchService = require(`./search`);
 
 module.exports = {
-  OfferService,
+  ProductService,
+  CollectionService,
+  CategoryService,
+  SearchService
 };

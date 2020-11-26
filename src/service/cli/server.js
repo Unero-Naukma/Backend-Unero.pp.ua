@@ -13,16 +13,17 @@ const logger = getLogger();
 const expressPinoLogger = require(`express-pino-logger`)({
   logger
 });
+const db = require(`../db/connect-db`);
 
 const DEFAULT_PORT = 3000;
 
 const app = express();
 
 
-const init = () => {
+const init = async (database) => {
   app.use(express.json());
   app.use(expressPinoLogger);
-  app.use(API_PREFIX, routes());
+  app.use(API_PREFIX, routes(database));
 
   app.use((req, res) => {
     res
@@ -38,11 +39,13 @@ const init = () => {
 module.exports = {
   name: `--server`,
   init,
-  run(args) {
+  async run(args) {
     const [customPort] = args;
     const port = Number.parseInt(customPort, 10) || DEFAULT_PORT;
 
-    init();
+    await db.connect();
+    await db.initDb();
+    await init(db);
 
     app.listen(port, () => {
       logger.info(`Wait for connections on port ${port}`);

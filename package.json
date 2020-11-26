@@ -5,10 +5,15 @@
   "main": "./src/service/service.js",
   "dependencies": {
     "chalk": "4.1.0",
+    "country-list": "2.2.0",
     "cross-env": "7.0.2",
+    "dotenv": "8.2.0",
     "express": "4.17.1",
     "express-pino-logger": "5.0.0",
-    "pino": "6.7.0"
+    "pg": "8.5.1",
+    "pino": "6.7.0",
+    "sequelize": "6.3.5",
+    "usa-states": "0.0.5"
   },
   "devDependencies": {
     "eslint": "7.12.1",
@@ -18,8 +23,8 @@
   },
   "scripts": {
     "eslint": "eslint --ext .js src/",
-    "start": "cross-env LOG_LEVEL=error nodemon --inspect=9231 ./src/service/service.js --server 3000",
-    "start::debug": "cross-env LOG_LEVEL=debug PRETTY_PRINT=1 nodemon --inspect=9231 ./src/service/service.js --server 3000"
+    "start": "cross-env LOG_LEVEL=error nodemon --inspect=9229 ./src/service/service.js --server 3000",
+    "start::debug": "cross-env LOG_LEVEL=debug PRETTY_PRINT=1 nodemon --inspect=9229 ./src/service/service.js --server 3000"
   },
   "repository": {
     "type": "git",

@@ -7,7 +7,7 @@ const server = require(`./server`);
 const Cli = {
   [help.name]: help,
   [version.name]: version,
-  [server.name]: server
+  [server.name]: server,
 };
 
 module.exports = {

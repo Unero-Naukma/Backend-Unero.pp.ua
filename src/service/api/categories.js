@@ -9,14 +9,13 @@ const {
 
 const route = new Router();
 
-module.exports = async (app, offerService) => {
-  app.use(`/offers`, route);
+module.exports = async (app, categoryService) => {
+  app.use(`/categories`, route);
 
   route.get(`/`, async (req, res) => {
+    const categories = await categoryService.findAll();
 
-    const offers = await offerService.findAll();
-
-    res.status(HttpCode.OK).json(offers);
+    res.status(HttpCode.OK).json(categories);
   });
 
 };
