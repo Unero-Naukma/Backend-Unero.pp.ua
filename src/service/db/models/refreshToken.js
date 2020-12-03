@@ -6,15 +6,16 @@ const {
 } = require(`sequelize`);
 
 module.exports = (sequelize) => {
-  class Country extends Model {}
+  class RefreshToken extends Model {}
 
-  Country.init({
+  RefreshToken.init({
     id: {
-      type: DataTypes.CHAR,
+      type: DataTypes.BIGINT,
+      autoIncrement: true,
       primaryKey: true,
       allowNull: false,
     },
-    name: {
+    data: {
       type: DataTypes.STRING,
       allowNull: false,
     }
@@ -23,5 +24,5 @@ module.exports = (sequelize) => {
     paranoid: false,
   });
 
-  return Country;
+  return RefreshToken;
 };

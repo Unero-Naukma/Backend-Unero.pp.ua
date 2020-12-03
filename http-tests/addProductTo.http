@@ -1,0 +1,4 @@
+POST http://localhost:3000/api/user/wishlist/products/2
+Content-Type: application/json
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE2MDY5ODY4MzIsImV4cCI6MTYwNjk5MDQzMn0.qiGwoOXgzmM8HjM6mKpIGJhRHm8HPLaOuuOlP1VH9FM
+

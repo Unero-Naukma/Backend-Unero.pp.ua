@@ -9,7 +9,7 @@ const {
 
 const route = new Router();
 
-module.exports = async (app, categoryService) => {
+module.exports = (app, categoryService) => {
   app.use(`/categories`, route);
 
   route.get(`/`, async (req, res) => {

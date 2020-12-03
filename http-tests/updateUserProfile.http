@@ -1,0 +1,5 @@
+PATCH http://localhost:3000/api/user/
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE2MDY5OTM3NjQsImV4cCI6MTYwNjk5NzM2NH0.hgtULwHOcaIMpyBfH6QtntSRQ05kEmDX1MHGfXyzTFQ
+Content-Type: application/json
+
+{"firstName":"Nikita","lastName":"Maslov","email":"maslov.e.f@gmail.com","passwordObj":{"currentPassword":"55&2020","newPassword":"Nikmas&23032002","repeat":"Nikmas&23032002"},"displayName":"Nikmas"}

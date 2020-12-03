@@ -15,7 +15,7 @@ const expressPinoLogger = require(`express-pino-logger`)({
 });
 const db = require(`../db/connect-db`);
 
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = 8080;
 
 const app = express();
 
