@@ -16,7 +16,8 @@ module.exports = (app, productService) => {
   app.use(`/products`, route);
 
   route.get(`/`, async (req, res) => {
-    const options = req.body;
+    let {options} = req.query;
+    options = JSON.parse(options);
 
     const products = await productService.findAll(options);
 
