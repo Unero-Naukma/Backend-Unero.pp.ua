@@ -6,7 +6,13 @@ class CollectionService {
   }
 
   async findAll() {
-    return await this._db.models.Collection.findAll();
+    return await this._db.models.Collection.findAll({
+      include: [{
+        model: this._db.models.Product,
+        as: `products`,
+        include: [`categories`]
+      }]
+    });
   }
 
   async findOne(id) {

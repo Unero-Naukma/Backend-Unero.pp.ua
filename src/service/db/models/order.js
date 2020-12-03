@@ -21,7 +21,6 @@ module.exports = (sequelize) => {
     }
   }, {
     sequelize,
-    timestamps: false,
     paranoid: false,
   });
 

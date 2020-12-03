@@ -1,8 +1,6 @@
 'use strict';
 
-const {
-  HttpCode
-} = require(`../../constants`);
+const HttpStatus = require(`http-status-codes`);
 
 module.exports = (collectionService) => async (req, res, next) => {
   const {
@@ -11,7 +9,7 @@ module.exports = (collectionService) => async (req, res, next) => {
   const collection = await collectionService.findOne(collectionId);
 
   if (!collection) {
-    res.status(HttpCode.NOT_FOUND)
+    res.status(HttpStatus.NOT_FOUND)
       .send(`The product with the id ${collection} is not found`);
     return;
   }

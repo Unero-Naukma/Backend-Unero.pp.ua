@@ -9,6 +9,9 @@ const {
   DB_DIALECT,
 } = require(`../../../config-env`);
 const {
+  DataTypes
+} = require(`sequelize`);
+const {
   getLogger
 } = require(`../logger`);
 const logger = getLogger();
@@ -42,6 +45,7 @@ const State = require(`./models/state`)(sequelize);
 const Status = require(`./models/status`)(sequelize);
 const User = require(`./models/user`)(sequelize);
 const Wishlist = require(`./models/wishlist`)(sequelize);
+const RefreshToken = require(`./models/refreshToken`)(sequelize);
 
 
 User.belongsTo(Address, {
@@ -77,23 +81,23 @@ Address.belongsTo(State, {
 Cart.belongsTo(User, {
   as: `user`,
   foreignKey: `userId`,
-  constraints: false
 });
 
 User.belongsTo(Cart, {
   as: `cart`,
   foreignKey: `cartId`,
+  constraints: false
 });
 
 Wishlist.belongsTo(User, {
   as: `user`,
   foreignKey: `userId`,
-  constraints: false
 });
 
 User.belongsTo(Wishlist, {
   as: `wishlist`,
   foreignKey: `wishlistId`,
+  constraints: false
 });
 
 User.hasMany(Order, {
@@ -128,14 +132,24 @@ Product.belongsToMany(Wishlist, {
   foreignKey: `productId`,
 });
 
+const CartsProducts = sequelize.define(`cartsProducts`, {
+  amount: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  }
+}, {
+  timestamps: false,
+  paranoid: false,
+});
+
 Cart.belongsToMany(Product, {
-  through: `cartsProducts`,
+  through: CartsProducts,
   as: `products`,
   foreignKey: `cartId`,
 });
 
 Product.belongsToMany(Cart, {
-  through: `cartsProducts`,
+  through: CartsProducts,
   as: `carts`,
   foreignKey: `productId`,
 });
@@ -226,7 +240,8 @@ module.exports = {
     Status,
     User,
     Wishlist,
-    Category
+    Category,
+    RefreshToken,
   },
   initDb,
   connect,

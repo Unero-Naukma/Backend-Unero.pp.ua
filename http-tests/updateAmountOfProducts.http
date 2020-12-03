@@ -1,0 +1,2 @@
+PATCH http://localhost:3000/api/user/cart/products/24?amount=7
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJpYXQiOjE2MDY5ODU1MjAsImV4cCI6MTYwNjk4OTEyMH0.VM7-AIulx4PAJNeolckO74V8amfHWZ742-NP6UA2nUQ

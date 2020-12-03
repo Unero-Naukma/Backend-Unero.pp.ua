@@ -12,7 +12,7 @@ const {
 
 const route = new Router();
 
-module.exports = async (app, collectionService) => {
+module.exports = (app, collectionService) => {
   app.use(`/collections`, route);
 
   route.get(`/`, async (req, res) => {

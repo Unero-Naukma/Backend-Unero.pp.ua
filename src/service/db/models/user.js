@@ -17,11 +17,9 @@ module.exports = (sequelize) => {
     },
     firstName: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     lastName: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     displayName: {
       type: DataTypes.STRING,
@@ -30,6 +28,7 @@ module.exports = (sequelize) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -37,12 +36,10 @@ module.exports = (sequelize) => {
     },
     avatar: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
 
   }, {
     sequelize,
-    timestamps: false,
     paranoid: false,
   });
 

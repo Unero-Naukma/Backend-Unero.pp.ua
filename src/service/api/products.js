@@ -12,7 +12,7 @@ const {
 
 const route = new Router();
 
-module.exports = async (app, productService) => {
+module.exports = (app, productService) => {
   app.use(`/products`, route);
 
   route.get(`/`, async (req, res) => {
