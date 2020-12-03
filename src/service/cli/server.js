@@ -14,13 +14,16 @@ const expressPinoLogger = require(`express-pino-logger`)({
   logger
 });
 const db = require(`../db/connect-db`);
-
+const cors = require(`cors`);
 const DEFAULT_PORT = 8080;
 
 const app = express();
 
 
 const init = async (database) => {
+  app.use(cors({
+    origin: `http://localhost:3000`
+  }));
   app.use(express.json());
   app.use(expressPinoLogger);
   app.use(API_PREFIX, routes(database));
