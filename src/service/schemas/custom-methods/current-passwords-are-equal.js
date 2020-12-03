@@ -1,9 +1,9 @@
 'use strict';
 
-module.exports = (userId, userService) => async (value) => {
+module.exports = (userId, userService) => async (value, helpers) => {
   const user = await userService.findById(userId);
   if (!await userService.checkUser(user, value)) {
-    throw new Error(`Current password is incorrect. Check and try again!`);
+    return helpers.error(`any.invalid`);
   }
 
   return value;
