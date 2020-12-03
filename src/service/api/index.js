@@ -28,7 +28,6 @@ const init = (db) => {
   category(app, new CategoryService(db));
   search(app, new SearchService(db));
   user(app, new UserService(db), new RefreshTokenService(db), productService);
-
   return app;
 };
 
