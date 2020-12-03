@@ -10,7 +10,7 @@ class ProductService {
 
   async findAll(options) {
     if (options) {
-      const {sortBy, filters} = options;
+      const {sortBy, filters, category} = options;
       let order = [];
       switch (sortBy) {
         case `newness`:
@@ -27,7 +27,6 @@ class ProductService {
       }
       let where;
       if (filters) {
-        where = {};
         const {price} = filters;
         if (price) {
           const {min, max} = price;
@@ -46,6 +45,19 @@ class ProductService {
             };
           }
         }
+      }
+      if (category) {
+        return await this._db.models.Product.findAll({
+          include: [{
+            model: this._db.models.Category,
+            as: `categories`,
+            where: {
+              name: category
+            }
+          }],
+          order,
+          where
+        });
       }
       return await this._db.models.Product.findAll({
         include: [`categories`],
